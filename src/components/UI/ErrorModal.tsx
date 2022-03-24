@@ -2,6 +2,7 @@ import Card from "./Card";
 import Button from "./Button";
 import classes from "./ErrorModal.module.css";
 import { ErrorMessage } from "../../Interfaces";
+import React from "react";
 
 interface ErrorProps extends ErrorMessage {
   onConfirm: () => void;
@@ -9,7 +10,7 @@ interface ErrorProps extends ErrorMessage {
 
 const ErrorModal = (props: ErrorProps) => {
   return (
-    <div>
+    <React.Fragment>
       <div className={classes.backdrop} onClick={props.onConfirm} />
       <Card className={classes.modal}>
         <header className={classes.header}>
@@ -22,7 +23,7 @@ const ErrorModal = (props: ErrorProps) => {
           <Button onClick={props.onConfirm}>Okay</Button>
         </footer>
       </Card>
-    </div>
+    </React.Fragment>
   );
 };
 
