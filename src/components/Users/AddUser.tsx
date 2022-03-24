@@ -5,6 +5,7 @@ import Button from "../UI/Button";
 import ErrorModal from "../UI/ErrorModal";
 import classes from "./AddUser.module.css";
 import { ErrorMessage } from "../../Interfaces";
+import Wrapper from "../Helpers/Wrapper";
 
 const AddUser = (props: {
   onAddUser: (arg0: string, arg1: string) => void;
@@ -49,7 +50,7 @@ const AddUser = (props: {
   };
 
   return (
-    <React.Fragment>
+    <Wrapper>
       {error && (
         <ErrorModal
           title={error.title}
@@ -76,7 +77,7 @@ const AddUser = (props: {
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </React.Fragment>
+    </Wrapper>
   );
 };
 
