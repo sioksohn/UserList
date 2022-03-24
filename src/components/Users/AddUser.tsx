@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 import Card from "../UI/Card";
 import Button from "../UI/Button";
@@ -10,6 +10,9 @@ import Wrapper from "../Helpers/Wrapper";
 const AddUser = (props: {
   onAddUser: (arg0: string, arg1: string) => void;
 }) => {
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const ageInputRef = useRef<HTMLInputElement>(null);
+
   const [enteredUsername, setEnteredUsername] = useState<string>("");
   const [enteredAge, setEnteredAge] = useState<string>("");
   const [error, setError] = useState<ErrorMessage | null>();
@@ -66,6 +69,7 @@ const AddUser = (props: {
             type="text"
             value={enteredUsername}
             onChange={usernameChangeHandler}
+            ref={nameInputRef}
           />
           <label htmlFor="age">Age (Years)</label>
           <input
@@ -73,6 +77,7 @@ const AddUser = (props: {
             type="number"
             value={enteredAge}
             onChange={ageChangeHandler}
+            ref={ageInputRef}
           />
           <Button type="submit">Add User</Button>
         </form>
